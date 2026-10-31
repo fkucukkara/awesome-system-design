@@ -101,4 +101,4 @@ Tie these to SLOs, as in [Observability and Reliability](../03-performance-and-r
 ## Interview cheat-sheet
 
 - Say: "A versioned golden set with rubric-based judges calibrated against humans gates every prompt, model and retrieval change; traces per run with cost and tokens feed dashboards, and failed production runs flow back into the dataset."
-- Related: [RAG](embeddings-vector-search-rag.md) (retrieval metrics), [Security](agent-security-safety-guardrails.md) (red-team cases).
+- Related: [Harness Engineering](harness-engineering.md) (ablating and gating harness changes), [RAG](embeddings-vector-search-rag.md) (retrieval metrics), [Security](agent-security-safety-guardrails.md) (red-team cases).

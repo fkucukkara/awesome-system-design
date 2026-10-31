@@ -6,7 +6,7 @@ Libraries that give you the agent loop, tool calling, memory hooks and multi-age
 
 | Framework | Model | Notes |
 |---|---|---|
-| **Microsoft Agent Framework** | Agents + graph-based Workflows + a Harness Agent | .NET, Python, Go (preview). Successor to Semantic Kernel and AutoGen (same teams). Sessions for state, context providers for memory, middleware, MCP client, telemetry. Providers include Foundry, Azure OpenAI, OpenAI, Anthropic, Ollama. Runs as a hosted agent in Foundry |
+| **Microsoft Agent Framework** | Agents + graph-based Workflows + a Harness Agent (see [Harness Engineering](../../02-core-concepts/04-agentic/harness-engineering.md)) | .NET, Python, Go (preview). Successor to Semantic Kernel and AutoGen (same teams). Sessions for state, context providers for memory, middleware, MCP client, telemetry. Providers include Foundry, Azure OpenAI, OpenAI, Anthropic, Ollama. Runs as a hosted agent in Foundry |
 | **Semantic Kernel** | Plugins, planners, filters | Mature .NET/Python/Java SDK; Agent Framework is the direction for new work |
 | **LangGraph** | Explicit state graph, checkpointers | Python/JS; strong persistence and human-in-the-loop; also deployable as a Foundry hosted agent |
 | **OpenAI Agents SDK, others** | Handoffs, guardrails, tracing | Lightweight; provider-centric |

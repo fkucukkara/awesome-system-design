@@ -98,7 +98,7 @@ For LLM, RAG and agent systems keep the same six steps and add the items below. 
 | High-Level Design | Add the model gateway, retrieval layer, tool layer and a durable run-state store as boxes. Keep the model a black box with a timeout |
 | Deep Dives | Pick from: retrieval quality, memory, orchestration pattern, evals, guardrails, cost and latency, durable execution |
 
-Basics to lean on: [LLM Fundamentals](../02-core-concepts/04-agentic/llm-fundamentals.md), [RAG](../02-core-concepts/04-agentic/embeddings-vector-search-rag.md), [Memory](../02-core-concepts/04-agentic/agent-memory-and-context-engineering.md), [Tools and MCP](../02-core-concepts/04-agentic/tool-use-mcp-and-agent-protocols.md), [Orchestration](../02-core-concepts/04-agentic/agent-orchestration-patterns.md), [Evals](../02-core-concepts/04-agentic/evaluation-and-observability-for-llm-systems.md), [Security](../02-core-concepts/04-agentic/agent-security-safety-guardrails.md).
+Basics to lean on: [LLM Fundamentals](../02-core-concepts/04-agentic/llm-fundamentals.md), [RAG](../02-core-concepts/04-agentic/embeddings-vector-search-rag.md), [Memory](../02-core-concepts/04-agentic/agent-memory-and-context-engineering.md), [Tools and MCP](../02-core-concepts/04-agentic/tool-use-mcp-and-agent-protocols.md), [Orchestration](../02-core-concepts/04-agentic/agent-orchestration-patterns.md), [Harness](../02-core-concepts/04-agentic/harness-engineering.md), [Evals](../02-core-concepts/04-agentic/evaluation-and-observability-for-llm-systems.md), [Security](../02-core-concepts/04-agentic/agent-security-safety-guardrails.md).
 
 ### Agentic checklist
 

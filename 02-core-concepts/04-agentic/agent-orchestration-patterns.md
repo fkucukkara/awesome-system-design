@@ -92,4 +92,4 @@ Approval requests are **durable events with a timeout and a default** (deny or e
 
 - Say: "I'd start with a workflow, give the agent loop hard budgets, run it on a durable workflow engine so a crash resumes at the last step, make every tool call idempotent, and require approval for irreversible actions."
 - Choosing between patterns: [Agent Pattern Decision Cheat-Sheet](agent-pattern-decision-cheat-sheet.md).
-- Related: [Tool Use and MCP](tool-use-mcp-and-agent-protocols.md), [Message Queues and Streaming](../03-performance-and-reliability/message-queues-and-streaming.md), [Rate Limiting, Idempotency and Retries](../03-performance-and-reliability/rate-limiting-idempotency-retries.md).
+- Related: [Harness Engineering](harness-engineering.md), [Tool Use and MCP](tool-use-mcp-and-agent-protocols.md), [Message Queues and Streaming](../03-performance-and-reliability/message-queues-and-streaming.md), [Rate Limiting, Idempotency and Retries](../03-performance-and-reliability/rate-limiting-idempotency-retries.md).

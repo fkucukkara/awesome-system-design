@@ -109,4 +109,4 @@ MCP is **agent to tool/data**; A2A is **agent to agent**. They are complementary
 ## Interview cheat-sheet
 
 - Say: "Tools sit behind an MCP gateway that terminates OAuth, validates audience, applies per-tenant rate limits and routes on the mirrored headers; servers are stateless; long jobs use the Tasks extension; writes are idempotent and need approval above a risk threshold."
-- Related: [Agent Orchestration Patterns](agent-orchestration-patterns.md), [Design an MCP Platform](../../05-agentic-problem-breakdowns/mcp-platform.md).
+- Related: [Agent Orchestration Patterns](agent-orchestration-patterns.md), [Harness Engineering](harness-engineering.md), [Design an MCP Platform](../../05-agentic-problem-breakdowns/mcp-platform.md).

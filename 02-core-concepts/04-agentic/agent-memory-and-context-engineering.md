@@ -86,4 +86,4 @@ Run extraction **off the hot path** (queue) so chat latency is unaffected.
 ## Interview cheat-sheet
 
 - Say: "Thread state in a document store loaded by `threadId`; extraction runs async to a per-user long-term store with embeddings; reads are top-k by similarity and recency filtered by user; summaries for old turns; TTL and delete-by-user for privacy."
-- Related: [Tool Use](tool-use-mcp-and-agent-protocols.md) (tool-schema budget), [Security](agent-security-safety-guardrails.md).
+- Related: [Harness Engineering](harness-engineering.md) (compaction, handoff across contexts), [Tool Use](tool-use-mcp-and-agent-protocols.md) (tool-schema budget), [Security](agent-security-safety-guardrails.md).
