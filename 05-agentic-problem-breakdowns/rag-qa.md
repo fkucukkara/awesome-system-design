@@ -59,7 +59,7 @@ Index record: `chunkId, docId, text, vector, section, page, updatedAt, aclGroups
 ## 6. Deep Dives
 
 ### 6.1 Retrieval quality
-Use hybrid search (BM25 plus vector, reciprocal rank fusion), then a cross-encoder reranker on the top 50, keeping ~8. Parent-child chunks: match on small chunks, send the parent section. Rewrite follow-ups into standalone queries and decompose multi-part questions (agentic retrieval fans out subqueries in parallel; costs more calls, so enable it for complex queries only). See [RAG](../02-core-concepts/15-embeddings-vector-search-rag.md).
+Use hybrid search (BM25 plus vector, reciprocal rank fusion), then a cross-encoder reranker on the top 50, keeping ~8. Parent-child chunks: match on small chunks, send the parent section. Rewrite follow-ups into standalone queries and decompose multi-part questions (agentic retrieval fans out subqueries in parallel; costs more calls, so enable it for complex queries only). See [RAG](../02-core-concepts/04-agentic/embeddings-vector-search-rag.md).
 
 ### 6.2 Permission-aware retrieval
 Store `aclGroups` on each chunk and filter inside the ANN query using the caller's group set (resolved from the identity token, cached briefly). Alternatives: per-tenant index (strong isolation, many indexes) or post-filtering (low recall and leak risk). ACL changes are propagated by a separate sync job, so permission revocation must be reflected within minutes; if the user's group lookup fails, **fail closed**.

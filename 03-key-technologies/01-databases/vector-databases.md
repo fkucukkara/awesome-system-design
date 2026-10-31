@@ -8,8 +8,8 @@ Stores for embeddings with approximate nearest neighbor (ANN) search. Decide bet
 |---|---|---|---|
 | **PostgreSQL + pgvector** | Same transaction as relational data, SQL filters, HNSW and IVFFlat indexes | RAM-bound at large scale, single-node write limits | Up to ~10M vectors, strong relational filtering, one datastore |
 | **Cosmos DB for NoSQL** | Vectors next to documents, `VectorDistance` in queries, `flat` (<=505 dims), `quantizedFlat` and `diskANN` (<=4096 dims), global distribution | Index needs >=1,000 vectors to quantize, RU cost, config changes need drop and re-add | Per-user or per-tenant data (memory, chat), partition-scoped search |
-| **Azure AI Search** | Hybrid, semantic reranking, indexers, agentic retrieval | Not a system of record; vector index memory quotas | Document RAG at scale, see [Azure AI Search](azure-ai-search.md) |
-| **Redis (vector sets / search)** | Sub-ms, doubles as semantic cache | Memory cost | Small hot sets, caches, see [Redis](redis.md) |
+| **Azure AI Search** | Hybrid, semantic reranking, indexers, agentic retrieval | Not a system of record; vector index memory quotas | Document RAG at scale, see [Azure AI Search](../02-caching-and-search/azure-ai-search.md) |
+| **Redis (vector sets / search)** | Sub-ms, doubles as semantic cache | Memory cost | Small hot sets, caches, see [Redis](../02-caching-and-search/redis.md) |
 | **Qdrant, Weaviate, Milvus, Pinecone** | Purpose-built, rich filtering, scale-out | Another system to run or pay for | Very large or specialized workloads |
 
 ## Index types
@@ -40,4 +40,4 @@ Stores for embeddings with approximate nearest neighbor (ANN) search. Decide bet
 ## Interview cheat-sheet
 
 - Say: "pgvector or Cosmos DB for per-user memory and small corpora, AI Search for document RAG with hybrid and rerank; filter inside the ANN query; version the embedding model and rebuild blue/green."
-- Related: [Embeddings and RAG](../02-core-concepts/15-embeddings-vector-search-rag.md), [PostgreSQL](postgresql.md), [Cosmos DB](cosmos-db.md).
+- Related: [Embeddings and RAG](../../02-core-concepts/04-agentic/embeddings-vector-search-rag.md), [PostgreSQL](postgresql.md), [Cosmos DB](cosmos-db.md).

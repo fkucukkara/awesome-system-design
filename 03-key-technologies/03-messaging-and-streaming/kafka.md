@@ -11,9 +11,23 @@ Distributed, partitioned, replicated commit log. High-throughput durable messagi
 
 ## When to avoid
 
-- Simple task queues with per-message ack/priority/delay (a queue like SQS/RabbitMQ is simpler).
+- Simple task queues with per-message ack/priority/delay (a queue like [RabbitMQ](rabbitmq.md), [Service Bus](service-bus.md) or SQS is simpler).
 - Request/response with tight latency.
 - Very small scale where operating a cluster is overkill (use a managed service).
+
+## Special features
+
+| Feature | What it gives you |
+|---|---|
+| Durable replicated log with retention | Replay and reprocess from any offset; new consumers can read history |
+| Consumer groups | Independent subscribers and horizontal scaling per group |
+| Log compaction | Keep the latest value per key (changelog, state tables) |
+| Transactions and idempotent producer | Exactly-once within Kafka-to-Kafka flows |
+| Kafka Streams, Flink, ksqlDB | Stateful stream processing next to the log |
+| Kafka Connect and Schema Registry | Ready connectors (CDC, sinks) and schema evolution |
+| Very high throughput | Hundreds of MB/s per broker with batching and compression |
+
+Managed options: Confluent Cloud, Amazon MSK, and [Azure Event Hubs](event-hubs-event-grid.md) via its Kafka endpoint.
 
 ## Architecture
 
@@ -71,3 +85,4 @@ Per broker: hundreds of MB/s, 100k+ msgs/s; end-to-end latency of a few ms to te
 - Pick the partition key from the ordering requirement (`chat_id`, `order_id`, `user_id`).
 - Say: replication factor 3, `acks=all`, idempotent consumers, DLQ, lag monitoring.
 - Use the outbox pattern for DB-to-Kafka consistency.
+- Compare with other options in [Choosing a Messaging Technology](choosing-a-messaging-technology.md).

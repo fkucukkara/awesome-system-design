@@ -26,48 +26,85 @@ A concise, Staff-level system design guide for interview preparation. Every prob
 
 ## 2. Core Concepts
 
-| # | Concept |
-|---|---|
-| 1 | [Networking Essentials](02-core-concepts/01-networking-essentials.md) |
-| 2 | [API Design](02-core-concepts/02-api-design.md) |
-| 3 | [Data Modeling](02-core-concepts/03-data-modeling.md) |
-| 4 | [Caching](02-core-concepts/04-caching.md) |
-| 5 | [Sharding](02-core-concepts/05-sharding.md) |
-| 6 | [Consistent Hashing](02-core-concepts/06-consistent-hashing.md) |
-| 7 | [CAP Theorem](02-core-concepts/07-cap-theorem.md) |
-| 8 | [Database Indexing](02-core-concepts/08-database-indexing.md) |
-| 9 | [Numbers to Know](02-core-concepts/09-numbers-to-know.md) |
-| 10 | [Replication and Consistency Models](02-core-concepts/10-replication-and-consistency.md) |
-| 11 | [Message Queues and Streaming](02-core-concepts/11-message-queues-and-streaming.md) |
-| 12 | [Rate Limiting, Idempotency and Retries](02-core-concepts/12-rate-limiting-idempotency-retries.md) |
-| 13 | [Observability and Reliability](02-core-concepts/13-observability-and-reliability.md) |
-| 14 | [LLM Fundamentals for System Designers](02-core-concepts/14-llm-fundamentals.md) |
-| 15 | [Embeddings, Vector Search and RAG](02-core-concepts/15-embeddings-vector-search-rag.md) |
-| 16 | [Agent Memory and Context Engineering](02-core-concepts/16-agent-memory-and-context-engineering.md) |
-| 17 | [Tool Use, MCP and Agent Protocols](02-core-concepts/17-tool-use-mcp-and-agent-protocols.md) |
-| 18 | [Agent Orchestration Patterns](02-core-concepts/18-agent-orchestration-patterns.md) |
-| 19 | [Agent Pattern Decision Cheat-Sheet](02-core-concepts/19-agent-pattern-decision-cheat-sheet.md) |
-| 20 | [Evaluation and Observability for LLM Systems](02-core-concepts/20-evaluation-and-observability-for-llm-systems.md) |
-| 21 | [Agent Security, Safety and Guardrails](02-core-concepts/21-agent-security-safety-guardrails.md) |
+### Foundations
+
+| Concept |
+|---|
+| [Networking Essentials](02-core-concepts/01-foundations/networking-essentials.md) |
+| [API Design](02-core-concepts/01-foundations/api-design.md) |
+| [Numbers to Know](02-core-concepts/01-foundations/numbers-to-know.md) |
+
+### Data
+
+| Concept |
+|---|
+| [Data Modeling](02-core-concepts/02-data/data-modeling.md) |
+| [Database Indexing](02-core-concepts/02-data/database-indexing.md) |
+| [Sharding](02-core-concepts/02-data/sharding.md) |
+| [Consistent Hashing](02-core-concepts/02-data/consistent-hashing.md) |
+| [Replication and Consistency Models](02-core-concepts/02-data/replication-and-consistency.md) |
+| [CAP Theorem](02-core-concepts/02-data/cap-theorem.md) |
+
+### Performance and Reliability
+
+| Concept |
+|---|
+| [Caching](02-core-concepts/03-performance-and-reliability/caching.md) |
+| [Message Queues and Streaming](02-core-concepts/03-performance-and-reliability/message-queues-and-streaming.md) |
+| [Rate Limiting, Idempotency and Retries](02-core-concepts/03-performance-and-reliability/rate-limiting-idempotency-retries.md) |
+| [Observability and Reliability](02-core-concepts/03-performance-and-reliability/observability-and-reliability.md) |
+
+### Agentic
+
+| Concept |
+|---|
+| [LLM Fundamentals for System Designers](02-core-concepts/04-agentic/llm-fundamentals.md) |
+| [Embeddings, Vector Search and RAG](02-core-concepts/04-agentic/embeddings-vector-search-rag.md) |
+| [Agent Memory and Context Engineering](02-core-concepts/04-agentic/agent-memory-and-context-engineering.md) |
+| [Tool Use, MCP and Agent Protocols](02-core-concepts/04-agentic/tool-use-mcp-and-agent-protocols.md) |
+| [Agent Orchestration Patterns](02-core-concepts/04-agentic/agent-orchestration-patterns.md) |
+| [Agent Pattern Decision Cheat-Sheet](02-core-concepts/04-agentic/agent-pattern-decision-cheat-sheet.md) |
+| [Evaluation and Observability for LLM Systems](02-core-concepts/04-agentic/evaluation-and-observability-for-llm-systems.md) |
+| [Agent Security, Safety and Guardrails](02-core-concepts/04-agentic/agent-security-safety-guardrails.md) |
 
 ## 3. Key Technologies
 
+### Databases
+
 | Technology | Reach for it when |
 |---|---|
-| [Redis](03-key-technologies/redis.md) | Sub-ms cache, counters, locks, leaderboards |
-| [Elasticsearch](03-key-technologies/elasticsearch.md) | Full-text search, faceting, log analytics |
-| [Kafka](03-key-technologies/kafka.md) | Durable ordered log, event streaming, decoupling |
-| [Cosmos DB](03-key-technologies/cosmos-db.md) | Managed multi-region NoSQL with tunable consistency |
-| [Cassandra](03-key-technologies/cassandra.md) | Write-heavy, always-on, wide-column workloads |
-| [PostgreSQL](03-key-technologies/postgresql.md) | Default relational store, transactions, rich queries |
-| [Microsoft Foundry](03-key-technologies/foundry.md) | Managed agent runtime, model deployments, toolboxes, governance |
-| [Azure AI Search](03-key-technologies/azure-ai-search.md) | Hybrid and vector search, RAG backbone, agentic retrieval |
-| [Azure API Management AI Gateway](03-key-technologies/azure-api-management-ai-gateway.md) | Token quotas, model load balancing, semantic cache, MCP governance |
-| [Vector Databases](03-key-technologies/vector-databases.md) | Choosing pgvector, Cosmos DB, AI Search or a dedicated engine |
-| [Durable Orchestration](03-key-technologies/durable-orchestration.md) | Crash-safe long-running agent runs, approvals, sagas |
-| [Agent Frameworks](03-key-technologies/agent-frameworks.md) | Agent Framework, LangGraph, workflows vs agents |
-| [Service Bus and Event Grid](03-key-technologies/service-bus-event-grid.md) | Reliable queues, sessions, DLQ, event fan-out for agents |
-| [Azure Container Apps](03-key-technologies/azure-container-apps.md) | Hosting agents and MCP servers, sandboxed code execution |
+| [PostgreSQL](03-key-technologies/01-databases/postgresql.md) | Default relational store, transactions, rich queries |
+| [Cosmos DB](03-key-technologies/01-databases/cosmos-db.md) | Managed multi-region NoSQL with tunable consistency |
+| [Cassandra](03-key-technologies/01-databases/cassandra.md) | Write-heavy, always-on, wide-column workloads |
+| [Vector Databases](03-key-technologies/01-databases/vector-databases.md) | Choosing pgvector, Cosmos DB, AI Search or a dedicated engine |
+
+### Caching and Search
+
+| Technology | Reach for it when |
+|---|---|
+| [Redis](03-key-technologies/02-caching-and-search/redis.md) | Sub-ms cache, counters, locks, leaderboards |
+| [Elasticsearch](03-key-technologies/02-caching-and-search/elasticsearch.md) | Full-text search, faceting, log analytics |
+| [Azure AI Search](03-key-technologies/02-caching-and-search/azure-ai-search.md) | Hybrid and vector search, RAG backbone, agentic retrieval |
+
+### Messaging and Streaming
+
+| Technology | Reach for it when |
+|---|---|
+| [Choosing a Messaging Technology](03-key-technologies/03-messaging-and-streaming/choosing-a-messaging-technology.md) | Decision tree and feature matrix across all five |
+| [Kafka](03-key-technologies/03-messaging-and-streaming/kafka.md) | Durable ordered log, event streaming, replay |
+| [RabbitMQ](03-key-technologies/03-messaging-and-streaming/rabbitmq.md) | Flexible routing, priorities, task queues, RPC |
+| [Service Bus](03-key-technologies/03-messaging-and-streaming/service-bus.md) | Reliable queues, sessions, DLQ, transactions on Azure |
+| [Event Hubs and Event Grid](03-key-technologies/03-messaging-and-streaming/event-hubs-event-grid.md) | Telemetry ingestion with replay; push event fan-out |
+
+### Agentic Platform
+
+| Technology | Reach for it when |
+|---|---|
+| [Microsoft Foundry](03-key-technologies/04-agentic-platform/foundry.md) | Managed agent runtime, model deployments, toolboxes, governance |
+| [Agent Frameworks](03-key-technologies/04-agentic-platform/agent-frameworks.md) | Agent Framework, LangGraph, workflows vs agents |
+| [Durable Orchestration](03-key-technologies/04-agentic-platform/durable-orchestration.md) | Crash-safe long-running agent runs, approvals, sagas |
+| [Azure API Management AI Gateway](03-key-technologies/04-agentic-platform/azure-api-management-ai-gateway.md) | Token quotas, model load balancing, semantic cache, MCP governance |
+| [Azure Container Apps](03-key-technologies/04-agentic-platform/azure-container-apps.md) | Hosting agents and MCP servers, sandboxed code execution |
 
 ## 4. Problem Breakdowns
 
@@ -105,6 +142,6 @@ New agentic problems start from the [agentic template](05-agentic-problem-breakd
 ## Agentic learning path
 
 1. Framework: [Agentic add-on](01-delivery-framework/README.md#agentic-add-on).
-2. Concepts in order: [LLM Fundamentals](02-core-concepts/14-llm-fundamentals.md), [RAG](02-core-concepts/15-embeddings-vector-search-rag.md), [Memory](02-core-concepts/16-agent-memory-and-context-engineering.md), [Tools and MCP](02-core-concepts/17-tool-use-mcp-and-agent-protocols.md), [Orchestration](02-core-concepts/18-agent-orchestration-patterns.md), [Pattern Cheat-Sheet](02-core-concepts/19-agent-pattern-decision-cheat-sheet.md), [Evals](02-core-concepts/20-evaluation-and-observability-for-llm-systems.md), [Security](02-core-concepts/21-agent-security-safety-guardrails.md).
-3. Technologies: [Foundry](03-key-technologies/foundry.md), [AI Search](03-key-technologies/azure-ai-search.md), [APIM AI Gateway](03-key-technologies/azure-api-management-ai-gateway.md), [Vector Databases](03-key-technologies/vector-databases.md), [Durable Orchestration](03-key-technologies/durable-orchestration.md), [Agent Frameworks](03-key-technologies/agent-frameworks.md), [Service Bus and Event Grid](03-key-technologies/service-bus-event-grid.md), [Container Apps](03-key-technologies/azure-container-apps.md).
+2. Concepts in order: [LLM Fundamentals](02-core-concepts/04-agentic/llm-fundamentals.md), [RAG](02-core-concepts/04-agentic/embeddings-vector-search-rag.md), [Memory](02-core-concepts/04-agentic/agent-memory-and-context-engineering.md), [Tools and MCP](02-core-concepts/04-agentic/tool-use-mcp-and-agent-protocols.md), [Orchestration](02-core-concepts/04-agentic/agent-orchestration-patterns.md), [Pattern Cheat-Sheet](02-core-concepts/04-agentic/agent-pattern-decision-cheat-sheet.md), [Evals](02-core-concepts/04-agentic/evaluation-and-observability-for-llm-systems.md), [Security](02-core-concepts/04-agentic/agent-security-safety-guardrails.md).
+3. Technologies: [Foundry](03-key-technologies/04-agentic-platform/foundry.md), [AI Search](03-key-technologies/02-caching-and-search/azure-ai-search.md), [APIM AI Gateway](03-key-technologies/04-agentic-platform/azure-api-management-ai-gateway.md), [Vector Databases](03-key-technologies/01-databases/vector-databases.md), [Durable Orchestration](03-key-technologies/04-agentic-platform/durable-orchestration.md), [Agent Frameworks](03-key-technologies/04-agentic-platform/agent-frameworks.md), [Service Bus](03-key-technologies/03-messaging-and-streaming/service-bus.md), [Event Hubs and Event Grid](03-key-technologies/03-messaging-and-streaming/event-hubs-event-grid.md), [Container Apps](03-key-technologies/04-agentic-platform/azure-container-apps.md).
 4. Problems in order: Chatbot, RAG Q&A, Agent Memory, MCP Platform, Agent Runtime, Customer Support Agent, Deep Research Agent.

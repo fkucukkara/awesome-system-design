@@ -51,7 +51,7 @@ flowchart LR
 | Actions | Human approval for irreversible, costly or external-facing actions; dry-run and diff before apply |
 | Output | Content safety filters, PII redaction, URL and markdown sanitization, grounding checks |
 | Monitoring | Log all tool calls and denials, anomaly detection, alerts, kill switch |
-| Testing | Red-team suites in the eval set (see [Evaluation](20-evaluation-and-observability-for-llm-systems.md)) |
+| Testing | Red-team suites in the eval set (see [Evaluation](evaluation-and-observability-for-llm-systems.md)) |
 
 **Never rely on the prompt ("do not reveal secrets") as a security control.** The model is a probabilistic component; enforce rules in code.
 
@@ -62,7 +62,7 @@ flowchart LR
 | **On-behalf-of (delegated user)** | Agent calls APIs with a token scoped to the requesting user; the data layer enforces their permissions |
 | Dedicated agent identity (workload identity) | Autonomous or background agents with their own narrowly scoped, auditable identity |
 | Short-lived, audience-bound tokens | Limit blast radius; never log or place tokens in prompts |
-| No token passthrough to downstream services | Exchange tokens instead (see [Tool Use and MCP](17-tool-use-mcp-and-agent-protocols.md)) |
+| No token passthrough to downstream services | Exchange tokens instead (see [Tool Use and MCP](tool-use-mcp-and-agent-protocols.md)) |
 | Per-agent registry and lifecycle | Inventory agents, owners, scopes; revoke quickly |
 
 Keep secrets in a vault; the model should never see credentials. Tools receive them at execution time.
@@ -94,4 +94,4 @@ Keep secrets in a vault; the model should never see credentials. Tools receive t
 ## Interview cheat-sheet
 
 - Say: "Authorization is enforced outside the model with the user's delegated identity; untrusted content cannot trigger write tools without approval; tools run sandboxed with least privilege; egress is allow-listed; every call is audited."
-- Related: [Rate Limiting](12-rate-limiting-idempotency-retries.md) (denial of wallet), [Agent Memory](16-agent-memory-and-context-engineering.md).
+- Related: [Rate Limiting](../03-performance-and-reliability/rate-limiting-idempotency-retries.md) (denial of wallet), [Agent Memory](agent-memory-and-context-engineering.md).

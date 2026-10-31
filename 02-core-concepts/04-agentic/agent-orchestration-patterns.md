@@ -56,7 +56,7 @@ An agent run may last minutes to days and spans many unreliable calls. A process
 | **Async API** | `POST /runs` returns `runId`; poll, stream or webhook for status |
 | **Durable human waits** | Wait for an external event or approval without holding a thread or connection |
 
-Orchestration code that is replayed must be deterministic: no wall-clock reads, no random, no direct I/O. Put the non-deterministic model call inside an activity and **record its result**, so replay reuses it instead of calling again. See [Durable Orchestration](../03-key-technologies/durable-orchestration.md).
+Orchestration code that is replayed must be deterministic: no wall-clock reads, no random, no direct I/O. Put the non-deterministic model call inside an activity and **record its result**, so replay reuses it instead of calling again. See [Durable Orchestration](../../03-key-technologies/04-agentic-platform/durable-orchestration.md).
 
 ## Human-in-the-loop
 
@@ -91,5 +91,5 @@ Approval requests are **durable events with a timeout and a default** (deny or e
 ## Interview cheat-sheet
 
 - Say: "I'd start with a workflow, give the agent loop hard budgets, run it on a durable workflow engine so a crash resumes at the last step, make every tool call idempotent, and require approval for irreversible actions."
-- Choosing between patterns: [Agent Pattern Decision Cheat-Sheet](19-agent-pattern-decision-cheat-sheet.md).
-- Related: [Tool Use and MCP](17-tool-use-mcp-and-agent-protocols.md), [Message Queues and Streaming](11-message-queues-and-streaming.md), [Rate Limiting, Idempotency and Retries](12-rate-limiting-idempotency-retries.md).
+- Choosing between patterns: [Agent Pattern Decision Cheat-Sheet](agent-pattern-decision-cheat-sheet.md).
+- Related: [Tool Use and MCP](tool-use-mcp-and-agent-protocols.md), [Message Queues and Streaming](../03-performance-and-reliability/message-queues-and-streaming.md), [Rate Limiting, Idempotency and Retries](../03-performance-and-reliability/rate-limiting-idempotency-retries.md).

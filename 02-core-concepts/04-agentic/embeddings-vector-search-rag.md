@@ -92,14 +92,14 @@ Version the index. Track `indexed_at` per document and alert on lag.
 | Hallucinated citation | Return chunk IDs from retrieval, validate that citations exist in the context |
 | Stale or deleted content | Incremental indexing, tombstones |
 | Permission leak | Query-time ACL filter, tests with cross-tenant probes |
-| Prompt injection inside documents | Treat retrieved text as untrusted data (see [Security](21-agent-security-safety-guardrails.md)) |
+| Prompt injection inside documents | Treat retrieved text as untrusted data (see [Security](agent-security-safety-guardrails.md)) |
 
 ## Evaluate retrieval and generation separately
 
 - Retrieval: recall@k, MRR, nDCG on a labeled query set.
-- Generation: groundedness (claims supported by context), answer relevance, citation accuracy. See [Evaluation](20-evaluation-and-observability-for-llm-systems.md).
+- Generation: groundedness (claims supported by context), answer relevance, citation accuracy. See [Evaluation](evaluation-and-observability-for-llm-systems.md).
 
 ## Interview cheat-sheet
 
 - Say: "Hybrid retrieval with metadata and ACL filters, rerank the top 50 to 8, parent-child chunks, incremental indexing off the change feed, and evals on recall@k and groundedness."
-- Compare vector stores in [Vector Databases](../03-key-technologies/vector-databases.md); Azure option in [Azure AI Search](../03-key-technologies/azure-ai-search.md).
+- Compare vector stores in [Vector Databases](../../03-key-technologies/01-databases/vector-databases.md); Azure option in [Azure AI Search](../../03-key-technologies/02-caching-and-search/azure-ai-search.md).

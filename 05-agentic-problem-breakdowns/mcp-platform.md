@@ -2,7 +2,7 @@
 
 A company-wide platform where many teams publish tools as MCP servers and many agents consume them safely. The challenge: **discovery, authentication and authorization per user, multi-tenancy, rate limiting, versioning and observability**, on a stateless protocol.
 
-Protocol notes follow MCP revision `2026-07-28` (stateless requests, Streamable HTTP, OAuth-based authorization, Tasks extension). See [Tool Use and MCP](../02-core-concepts/17-tool-use-mcp-and-agent-protocols.md). Last verified: 2026-10.
+Protocol notes follow MCP revision `2026-07-28` (stateless requests, Streamable HTTP, OAuth-based authorization, Tasks extension). See [Tool Use and MCP](../02-core-concepts/04-agentic/tool-use-mcp-and-agent-protocols.md). Last verified: 2026-10.
 
 ## 1. Requirements
 

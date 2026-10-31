@@ -47,7 +47,7 @@ Budget **cost per task**, not per call. An agent task with 8 calls averaging 6k 
 - Providers limit **tokens per minute (TPM)** and **requests per minute (RPM)** per deployment. TPM is usually the binding limit.
 - Limits are per model deployment and region. Capacity is a shared, scarce resource, so treat 429 as normal.
 - Mitigations: multiple deployments or regions behind a gateway, retry with exponential backoff and jitter honoring `Retry-After`, a fallback model, provisioned throughput for steady load, queue plus batch for background work.
-- Apply your own **per-tenant token budgets** so one customer cannot exhaust the shared quota (see [Rate Limiting, Idempotency and Retries](12-rate-limiting-idempotency-retries.md)).
+- Apply your own **per-tenant token budgets** so one customer cannot exhaust the shared quota (see [Rate Limiting, Idempotency and Retries](../03-performance-and-reliability/rate-limiting-idempotency-retries.md)).
 
 ## Model routing and fallbacks
 
@@ -93,4 +93,4 @@ Budget **cost per task**, not per call. An agent task with 8 calls averaging 6k 
 
 - Say: "I treat the model as a rate-limited, metered dependency behind a gateway: streaming for TTFT, per-tenant token budgets, a cheaper fallback model, and a cost-per-task SLO."
 - Estimate tokens, not requests: `users x turns x tokens` decides quota and cost.
-- See also: [Numbers to Know](09-numbers-to-know.md), [Evaluation and Observability](20-evaluation-and-observability-for-llm-systems.md).
+- See also: [Numbers to Know](../01-foundations/numbers-to-know.md), [Evaluation and Observability](evaluation-and-observability-for-llm-systems.md).

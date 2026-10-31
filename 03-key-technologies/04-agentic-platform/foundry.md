@@ -56,4 +56,4 @@ flowchart LR
 ## Interview cheat-sheet
 
 - Say: "Prompt agent for simple cases, hosted agent when I need custom orchestration; Standard setup so threads live in my Cosmos DB and vectors in AI Search; tools through a toolbox; evals and tracing gate releases."
-- Related: [Evaluation](../02-core-concepts/20-evaluation-and-observability-for-llm-systems.md), [Security](../02-core-concepts/21-agent-security-safety-guardrails.md).
+- Related: [Evaluation](../../02-core-concepts/04-agentic/evaluation-and-observability-for-llm-systems.md), [Security](../../02-core-concepts/04-agentic/agent-security-safety-guardrails.md).

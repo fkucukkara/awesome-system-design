@@ -39,7 +39,7 @@ flowchart LR
 | Routing | Calls include an `identifier`; the pool routes to the existing session or allocates one. Use `identifier = runId` or `userId` to keep state across calls |
 | Lifecycle | Destroyed after a configurable cooldown without activity; list and inspect sessions via API |
 
-Sandbox rules (same threat model as [LeetCode](../04-problem-breakdowns/leetcode.md)): no ambient credentials, restrict egress, cap CPU/memory/time, treat all output as untrusted, never mount secrets into the session.
+Sandbox rules (same threat model as [LeetCode](../../04-problem-breakdowns/leetcode.md)): no ambient credentials, restrict egress, cap CPU/memory/time, treat all output as untrusted, never mount secrets into the session.
 
 ## Identity and networking
 
@@ -56,4 +56,4 @@ Sandbox rules (same threat model as [LeetCode](../04-problem-breakdowns/leetcode
 ## Interview cheat-sheet
 
 - Say: "Agent API and MCP servers run on Container Apps scaled by queue depth and concurrency; code tools run in a dynamic-session sandbox keyed by runId with egress denied; artifacts go to blob storage."
-- Related: [Tool Use and MCP](../02-core-concepts/17-tool-use-mcp-and-agent-protocols.md), [Security](../02-core-concepts/21-agent-security-safety-guardrails.md).
+- Related: [Tool Use and MCP](../../02-core-concepts/04-agentic/tool-use-mcp-and-agent-protocols.md), [Security](../../02-core-concepts/04-agentic/agent-security-safety-guardrails.md).

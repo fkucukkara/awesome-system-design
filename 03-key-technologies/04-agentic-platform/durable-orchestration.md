@@ -66,4 +66,4 @@ Limits to name: 1 MB payload for orchestrator/activity inputs and outputs, exter
 ## Interview cheat-sheet
 
 - Say: "Run = durable orchestration; model and tool calls are activities with idempotency keys; approvals are external events with timeouts; a crash resumes from history, not from the beginning."
-- Related: [Agent Orchestration Patterns](../02-core-concepts/18-agent-orchestration-patterns.md), [Service Bus and Event Grid](service-bus-event-grid.md).
+- Related: [Agent Orchestration Patterns](../../02-core-concepts/04-agentic/agent-orchestration-patterns.md), [Service Bus](../03-messaging-and-streaming/service-bus.md), [Event Hubs and Event Grid](../03-messaging-and-streaming/event-hubs-event-grid.md).

@@ -59,7 +59,7 @@ Run state lives in the workflow history (event-sourced) plus a queryable `Run` p
 ## 6. Deep Dives
 
 ### 6.1 Durable execution
-Use a durable workflow engine (see [Durable Orchestration](../03-key-technologies/durable-orchestration.md)). Orchestration code is deterministic and replayed from history; model and tool calls are **activities whose results are recorded**, so replay never re-calls the model. A crashed worker's runs are picked up by another from the last recorded step. Large payloads (documents, artifacts) go to blob storage with references in history to keep it small; long loops use continue-as-new.
+Use a durable workflow engine (see [Durable Orchestration](../03-key-technologies/04-agentic-platform/durable-orchestration.md)). Orchestration code is deterministic and replayed from history; model and tool calls are **activities whose results are recorded**, so replay never re-calls the model. A crashed worker's runs are picked up by another from the last recorded step. Large payloads (documents, artifacts) go to blob storage with references in history to keep it small; long loops use continue-as-new.
 
 ### 6.2 Idempotent side effects
 Each tool call has a deterministic idempotency key `runId:stepId:attempt-independent`. Tools must dedupe on it; non-idempotent tools use an **outbox** or two-phase approach (prepare, then commit after approval). Failures after a side effect trigger a **compensation** step (saga) instead of blind retry.
@@ -71,7 +71,7 @@ Hard limits per run: max steps, tokens, dollars, wall time, repeated-call detect
 Approval is a durable external event with a timeout and a default (deny). The run holds no thread while waiting. The approval request records the proposed action, diff and the approver identity; resumed runs re-check the policy since conditions may have changed.
 
 ### 6.5 Fairness and scaling
-Workers pull from partitioned task queues; per-tenant concurrency limits and weighted fair scheduling prevent starvation. LLM gateway handles TPM quotas, backoff and fallback (see [LLM Fundamentals](../02-core-concepts/14-llm-fundamentals.md)). Autoscale workers on queue depth and oldest-task age. Isolate noisy tenants onto dedicated pools.
+Workers pull from partitioned task queues; per-tenant concurrency limits and weighted fair scheduling prevent starvation. LLM gateway handles TPM quotas, backoff and fallback (see [LLM Fundamentals](../02-core-concepts/04-agentic/llm-fundamentals.md)). Autoscale workers on queue depth and oldest-task age. Isolate noisy tenants onto dedicated pools.
 
 ### 6.6 Event streaming
 Step events are published to a stream; SSE gateways fan out to clients with a replay cursor, so reconnecting clients catch up from the persisted step log instead of the live stream.

@@ -11,7 +11,7 @@ Managed search service: full-text, vector, hybrid, semantic reranking, indexers 
 ## When to avoid
 
 - System of record or transactions (use a database).
-- Tiny corpora (a vector column in PostgreSQL or Cosmos DB may be enough, see [Vector Databases](vector-databases.md)).
+- Tiny corpora (a vector column in PostgreSQL or Cosmos DB may be enough, see [Vector Databases](../01-databases/vector-databases.md)).
 - Heavy log analytics (use [Elasticsearch](elasticsearch.md) or a log store).
 
 ## Core model
@@ -39,7 +39,7 @@ A **knowledge base** with one or more **knowledge sources** (indexed or remote).
 
 ## Security
 
-- Document-level security: filter by ACL group IDs stored on documents, using the caller's identity. See [RAG](../02-core-concepts/15-embeddings-vector-search-rag.md).
+- Document-level security: filter by ACL group IDs stored on documents, using the caller's identity. See [RAG](../../02-core-concepts/04-agentic/embeddings-vector-search-rag.md).
 - Entra auth and RBAC, private endpoints, customer-managed keys.
 
 ## Operations and failure modes

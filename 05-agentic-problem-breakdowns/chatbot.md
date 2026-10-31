@@ -58,7 +58,7 @@ flowchart LR
     API --> UQ[[Usage events]] --> AGG[Usage aggregator / billing]
 ```
 
-- **Conversation store**: partition key `conversationId` (or `userId` for list queries via a secondary view); messages ordered by time-sortable ID. A document or wide-column store fits (see [Cosmos DB](../03-key-technologies/cosmos-db.md), [Cassandra](../03-key-technologies/cassandra.md)).
+- **Conversation store**: partition key `conversationId` (or `userId` for list queries via a secondary view); messages ordered by time-sortable ID. A document or wide-column store fits (see [Cosmos DB](../03-key-technologies/01-databases/cosmos-db.md), [Cassandra](../03-key-technologies/01-databases/cassandra.md)).
 - API servers are stateless, so any replica can serve any turn.
 
 ## 6. Deep Dives
@@ -67,10 +67,10 @@ flowchart LR
 SSE holds one connection per active generation. At peak ~6k turns/s with ~15 s streams there are ~90k concurrent streams, which is fine across tens of API nodes. Disable proxy buffering, send keep-alives, and cap stream duration. **Client disconnect cancels the upstream generation** to stop paying for tokens. If the client reconnects mid-stream, serve the persisted partial text plus resume from a `lastEventId` cursor stored with the buffered chunks.
 
 ### 6.2 Context and history
-Options: send full history (simple, costs grow quadratically over a long chat), sliding window, rolling summary. Choose sliding window plus summary of older turns, stored with the conversation, with a hard token budget. Keep a stable prefix (system prompt first) to benefit from provider prompt caching. See [Agent Memory](../02-core-concepts/16-agent-memory-and-context-engineering.md).
+Options: send full history (simple, costs grow quadratically over a long chat), sliding window, rolling summary. Choose sliding window plus summary of older turns, stored with the conversation, with a hard token budget. Keep a stable prefix (system prompt first) to benefit from provider prompt caching. See [Agent Memory](../02-core-concepts/04-agentic/agent-memory-and-context-engineering.md).
 
 ### 6.3 Quotas, routing and fallback
-Shared model quota (TPM) is the scarcest resource. Gateway enforces per-tenant token budgets, load balances across deployments, and falls back to a smaller model on 429 or timeout with a visible "reduced quality" flag. Pre-estimate prompt tokens to reject oversize requests early. See [LLM Fundamentals](../02-core-concepts/14-llm-fundamentals.md) and [Rate Limiter](../04-problem-breakdowns/distributed-rate-limiter.md).
+Shared model quota (TPM) is the scarcest resource. Gateway enforces per-tenant token budgets, load balances across deployments, and falls back to a smaller model on 429 or timeout with a visible "reduced quality" flag. Pre-estimate prompt tokens to reject oversize requests early. See [LLM Fundamentals](../02-core-concepts/04-agentic/llm-fundamentals.md) and [Rate Limiter](../04-problem-breakdowns/distributed-rate-limiter.md).
 
 ### 6.4 Durability and idempotency
 Persist the user message before calling the model. Persist the assistant message once at the end (and periodically for long answers). A retry with the same `clientMsgId` returns the existing message or resumes, never double-charges.

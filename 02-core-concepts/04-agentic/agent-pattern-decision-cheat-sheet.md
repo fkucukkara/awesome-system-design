@@ -23,16 +23,16 @@ flowchart TD
 
 | Problem shape | Pattern | Why | Reference problem |
 |---|---|---|---|
-| Single Q&A over a knowledge base | RAG, single call | Grounded answer, lowest cost | [RAG Q&A](../05-agentic-problem-breakdowns/rag-qa.md) |
-| Open conversation, no actions | Chat with history and safety filters | Simple, streaming | [Chatbot](../05-agentic-problem-breakdowns/chatbot.md) |
-| Inputs fall into known categories | Routing then specialized handlers | Cheap models per category | [Customer Support Agent](../05-agentic-problem-breakdowns/customer-support-agent.md) |
+| Single Q&A over a knowledge base | RAG, single call | Grounded answer, lowest cost | [RAG Q&A](../../05-agentic-problem-breakdowns/rag-qa.md) |
+| Open conversation, no actions | Chat with history and safety filters | Simple, streaming | [Chatbot](../../05-agentic-problem-breakdowns/chatbot.md) |
+| Inputs fall into known categories | Routing then specialized handlers | Cheap models per category | [Customer Support Agent](../../05-agentic-problem-breakdowns/customer-support-agent.md) |
 | Fixed multi-step transformation | Prompt chaining with validation gates | Predictable, testable | Document pipelines |
-| Needs actions on business systems | ReAct with tools plus approval for writes | Flexible, bounded | [Customer Support Agent](../05-agentic-problem-breakdowns/customer-support-agent.md) |
-| Long tasks, hours to days | Durable workflow, async runs | Survives crashes | [Agent Runtime](../05-agentic-problem-breakdowns/agent-runtime.md) |
-| Broad research with unknown subtasks | Orchestrator-workers, parallel retrieval | Breadth in parallel, small contexts | [Deep Research Agent](../05-agentic-problem-breakdowns/deep-research-agent.md) |
+| Needs actions on business systems | ReAct with tools plus approval for writes | Flexible, bounded | [Customer Support Agent](../../05-agentic-problem-breakdowns/customer-support-agent.md) |
+| Long tasks, hours to days | Durable workflow, async runs | Survives crashes | [Agent Runtime](../../05-agentic-problem-breakdowns/agent-runtime.md) |
+| Broad research with unknown subtasks | Orchestrator-workers, parallel retrieval | Breadth in parallel, small contexts | [Deep Research Agent](../../05-agentic-problem-breakdowns/deep-research-agent.md) |
 | Quality-critical generation | Evaluator-optimizer loop | Self-correction with a clear rubric | Code and report generation |
-| Personalization over time | Long-term memory service | Context beyond one session | [Agent Memory Service](../05-agentic-problem-breakdowns/agent-memory-service.md) |
-| Many tools and teams exposing capabilities | MCP gateway and registry | Shared, governed tool layer | [MCP Platform](../05-agentic-problem-breakdowns/mcp-platform.md) |
+| Personalization over time | Long-term memory service | Context beyond one session | [Agent Memory Service](../../05-agentic-problem-breakdowns/agent-memory-service.md) |
+| Many tools and teams exposing capabilities | MCP gateway and registry | Shared, governed tool layer | [MCP Platform](../../05-agentic-problem-breakdowns/mcp-platform.md) |
 
 ## Trade-off table
 
@@ -60,4 +60,4 @@ flowchart TD
 - Writes with no idempotency key or approval.
 - No evals, so prompt or model changes ship blind.
 
-See [Agent Orchestration Patterns](18-agent-orchestration-patterns.md) for definitions and [Evaluation](20-evaluation-and-observability-for-llm-systems.md) for how to prove a pattern works.
+See [Agent Orchestration Patterns](agent-orchestration-patterns.md) for definitions and [Evaluation](evaluation-and-observability-for-llm-systems.md) for how to prove a pattern works.

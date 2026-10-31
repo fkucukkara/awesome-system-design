@@ -83,7 +83,7 @@ sequenceDiagram
 ## 6. Deep Dives
 
 ### 6.1 Orchestrator-workers and context isolation
-The planner decides subtasks at runtime (they are not known in advance), which is why this is orchestrator-workers rather than a fixed chain. Each worker gets a **fresh small context** (its sub-question plus a few sources) and returns a compact note with source IDs, not raw pages. This keeps tokens low, avoids long-context degradation and lets workers run in parallel. The orchestrator holds only plan and notes. See [Orchestration Patterns](../02-core-concepts/18-agent-orchestration-patterns.md).
+The planner decides subtasks at runtime (they are not known in advance), which is why this is orchestrator-workers rather than a fixed chain. Each worker gets a **fresh small context** (its sub-question plus a few sources) and returns a compact note with source IDs, not raw pages. This keeps tokens low, avoids long-context degradation and lets workers run in parallel. The orchestrator holds only plan and notes. See [Orchestration Patterns](../02-core-concepts/04-agentic/agent-orchestration-patterns.md).
 
 ### 6.2 Durable, resumable runs
 The orchestrator is a durable workflow: worker tasks are activities with retries and timeouts, results are persisted, and a crash resumes with completed tasks reused. Fan-out/fan-in uses the engine's join; dedupe fetched URLs by content hash so retries do not repay costs. See [Agent Runtime](agent-runtime.md).
@@ -95,7 +95,7 @@ Budget ledger per run: tokens, searches, fetches, dollars, depth (rounds of foll
 Evidence is stored as exact passages tied to a source and a retrieval timestamp. The writer may only cite evidence IDs; the verifier checks that each claim is supported by its cited passage (LLM entailment on every claim or a sample) and flags unsupported or contradicted claims, which trigger repair or removal. Report conflicts between sources explicitly rather than choosing silently.
 
 ### 6.5 Untrusted web content
-Fetched pages can contain instructions. Treat them as data only: workers have **no side-effect tools**, only search and fetch with egress allow-list, content size limits and sanitization; the orchestrator never executes instructions from sources. Cross-checks and domain reputation reduce poisoned sources. See [Security](../02-core-concepts/21-agent-security-safety-guardrails.md).
+Fetched pages can contain instructions. Treat them as data only: workers have **no side-effect tools**, only search and fetch with egress allow-list, content size limits and sanitization; the orchestrator never executes instructions from sources. Cross-checks and domain reputation reduce poisoned sources. See [Security](../02-core-concepts/04-agentic/agent-security-safety-guardrails.md).
 
 ### 6.6 Cost and quality tiers
 Strong model for planning and writing, small model for worker extraction, reranker for source selection. Offer depth tiers (quick, standard, deep) with different budgets. Cache search results and fetched pages across runs (respecting licensing and freshness).

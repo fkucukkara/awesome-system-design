@@ -54,7 +54,7 @@ Serial dependencies multiply: three 99.9% services in a chain give ~99.7%.
 
 ## LLM and vector search (agentic systems)
 
-Order-of-magnitude figures that shift every few months. Re-check against current provider docs and your own benchmarks. See [LLM Fundamentals](14-llm-fundamentals.md).
+Order-of-magnitude figures that shift every few months. Re-check against current provider docs and your own benchmarks. See [LLM Fundamentals](../04-agentic/llm-fundamentals.md).
 
 | Item | Approx. |
 |---|---|

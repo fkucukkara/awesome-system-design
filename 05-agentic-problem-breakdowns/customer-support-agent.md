@@ -60,13 +60,13 @@ flowchart LR
 ## 6. Deep Dives
 
 ### 6.1 Routing and workflow vs agent
-Most traffic is a small set of intents. Route first with a cheap classifier, then run a **fixed workflow** for high-risk flows (refunds: verify identity, check eligibility, compute amount, confirm with customer, execute) and a **bounded ReAct loop** for flexible ones. Each handler sees only its own 3-6 tools, which raises tool-selection accuracy and cuts prompt size. See [Pattern Decision Cheat-Sheet](../02-core-concepts/19-agent-pattern-decision-cheat-sheet.md).
+Most traffic is a small set of intents. Route first with a cheap classifier, then run a **fixed workflow** for high-risk flows (refunds: verify identity, check eligibility, compute amount, confirm with customer, execute) and a **bounded ReAct loop** for flexible ones. Each handler sees only its own 3-6 tools, which raises tool-selection accuracy and cuts prompt size. See [Pattern Decision Cheat-Sheet](../02-core-concepts/04-agentic/agent-pattern-decision-cheat-sheet.md).
 
 ### 6.2 Safe actions
 Reads are free; writes pass through the policy engine in code: refund cap per customer and per day, eligibility rules, fraud signals. Above the cap, or for new action types, a human approves (durable wait, see [Agent Runtime](agent-runtime.md)). Every action carries an idempotency key `conversationId:actionIntent` so retries and loops cannot double-refund. The agent **confirms the exact action with the customer** before executing. Compensation exists for reversible actions.
 
 ### 6.3 Identity and prompt injection
-Customer-written text and retrieved documents are untrusted. Tools bind to the authenticated customer ID outside the model (the model cannot choose another customer's ID). A malicious message ("refund order 123 of another user") fails the authorization check, not a prompt rule. See [Security](../02-core-concepts/21-agent-security-safety-guardrails.md).
+Customer-written text and retrieved documents are untrusted. Tools bind to the authenticated customer ID outside the model (the model cannot choose another customer's ID). A malicious message ("refund order 123 of another user") fails the authorization check, not a prompt rule. See [Security](../02-core-concepts/04-agentic/agent-security-safety-guardrails.md).
 
 ### 6.4 Handoff
 Escalate on explicit request, repeated failure, low confidence, negative sentiment or regulated topics. Handoff payload: summary, intent, actions taken, retrieved evidence. Preserve the thread so the customer does not repeat themselves. Keep a human-capacity-aware queue; if no humans are available, offer a callback.

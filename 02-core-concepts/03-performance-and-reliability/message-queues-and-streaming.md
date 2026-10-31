@@ -19,6 +19,8 @@ flowchart LR
 | Ordering | Best effort or FIFO queue | Per partition |
 | Best for | Task distribution, work queues | Event streams, CDC, multiple subscribers, reprocessing |
 
+Technology picks and feature comparison: [Choosing a Messaging Technology](../../03-key-technologies/03-messaging-and-streaming/choosing-a-messaging-technology.md).
+
 ## Delivery semantics
 
 | Semantics | Meaning | Reality |

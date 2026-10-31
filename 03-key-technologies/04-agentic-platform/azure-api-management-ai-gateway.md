@@ -53,4 +53,4 @@ flowchart LR
 ## Interview cheat-sheet
 
 - Say: "APIM AI gateway: per-tenant token limits and metrics, PTU-first load balancing with circuit breaker spillover, semantic cache per tenant, content safety, and MCP servers registered and governed in one place."
-- Related: [LLM Fundamentals](../02-core-concepts/14-llm-fundamentals.md), [Redis](redis.md).
+- Related: [LLM Fundamentals](../../02-core-concepts/04-agentic/llm-fundamentals.md), [Redis](../02-caching-and-search/redis.md).

@@ -22,7 +22,7 @@ flowchart TB
 | Short-term | Session or thread | Key-value / document DB, cache | Load last N turns or summary by `threadId` |
 | Long-term semantic | Months to forever | Document DB plus vector index | Similarity + metadata filter by `userId` |
 | Episodic | Days to months | Document DB / log store | By recency, similarity, outcome |
-| Shared knowledge | Org-wide | RAG index | See [RAG](15-embeddings-vector-search-rag.md) |
+| Shared knowledge | Org-wide | RAG index | See [RAG](embeddings-vector-search-rag.md) |
 
 Do not confuse **memory** (learned about the user or the agent's past) with **knowledge** (corpus documents). They have different owners, privacy rules and lifecycles.
 
@@ -86,4 +86,4 @@ Run extraction **off the hot path** (queue) so chat latency is unaffected.
 ## Interview cheat-sheet
 
 - Say: "Thread state in a document store loaded by `threadId`; extraction runs async to a per-user long-term store with embeddings; reads are top-k by similarity and recency filtered by user; summaries for old turns; TTL and delete-by-user for privacy."
-- Related: [Tool Use](17-tool-use-mcp-and-agent-protocols.md) (tool-schema budget), [Security](21-agent-security-safety-guardrails.md).
+- Related: [Tool Use](tool-use-mcp-and-agent-protocols.md) (tool-schema budget), [Security](agent-security-safety-guardrails.md).

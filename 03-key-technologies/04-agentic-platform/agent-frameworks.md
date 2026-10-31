@@ -46,4 +46,4 @@ Libraries that give you the agent loop, tool calling, memory hooks and multi-age
 ## Interview cheat-sheet
 
 - Say: "Agent Framework workflows for the deterministic parts, an agent loop with budgets for the open-ended part, tools via MCP, state in a durable store, traces to Application Insights."
-- Related: [Foundry](foundry.md), [Agent Orchestration Patterns](../02-core-concepts/18-agent-orchestration-patterns.md).
+- Related: [Foundry](foundry.md), [Agent Orchestration Patterns](../../02-core-concepts/04-agentic/agent-orchestration-patterns.md).

@@ -54,7 +54,7 @@ flowchart LR
     DEL[Delete requests] --> API
 ```
 
-Storage: a document store with a vector index partitioned by `userId`, so a similarity search scans only one user's data (see [Vector Databases](../03-key-technologies/vector-databases.md)).
+Storage: a document store with a vector index partitioned by `userId`, so a similarity search scans only one user's data (see [Vector Databases](../03-key-technologies/01-databases/vector-databases.md)).
 
 ## 6. Deep Dives
 

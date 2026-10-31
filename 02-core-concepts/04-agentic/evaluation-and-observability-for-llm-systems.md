@@ -86,7 +86,7 @@ Controls: **redact PII and secrets** before storage, set retention, sample paylo
 | Guardrail block rate | Attack or false-positive surge |
 | Escalation rate | Quality regression |
 
-Tie these to SLOs, as in [Observability and Reliability](13-observability-and-reliability.md). Add a runbook for "answer quality dropped": check recent prompt/model/index changes, then retrieval recall, then tool errors.
+Tie these to SLOs, as in [Observability and Reliability](../03-performance-and-reliability/observability-and-reliability.md). Add a runbook for "answer quality dropped": check recent prompt/model/index changes, then retrieval recall, then tool errors.
 
 ## Failure modes
 
@@ -101,4 +101,4 @@ Tie these to SLOs, as in [Observability and Reliability](13-observability-and-re
 ## Interview cheat-sheet
 
 - Say: "A versioned golden set with rubric-based judges calibrated against humans gates every prompt, model and retrieval change; traces per run with cost and tokens feed dashboards, and failed production runs flow back into the dataset."
-- Related: [RAG](15-embeddings-vector-search-rag.md) (retrieval metrics), [Security](21-agent-security-safety-guardrails.md) (red-team cases).
+- Related: [RAG](embeddings-vector-search-rag.md) (retrieval metrics), [Security](agent-security-safety-guardrails.md) (red-team cases).

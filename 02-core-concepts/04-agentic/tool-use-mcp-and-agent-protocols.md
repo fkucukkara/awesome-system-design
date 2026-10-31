@@ -92,9 +92,9 @@ MCP is **agent to tool/data**; A2A is **agent to agent**. They are complementary
 
 ## Execution safety and sandboxing
 
-- Code-execution and shell tools run in **isolated sandboxes** (microVM or hardened container, no ambient credentials, egress allow-list, CPU/memory/time limits, ephemeral filesystem). See the LeetCode breakdown for the same threat model in [LeetCode](../04-problem-breakdowns/leetcode.md).
+- Code-execution and shell tools run in **isolated sandboxes** (microVM or hardened container, no ambient credentials, egress allow-list, CPU/memory/time limits, ephemeral filesystem). See the LeetCode breakdown for the same threat model in [LeetCode](../../04-problem-breakdowns/leetcode.md).
 - Treat tool descriptions and tool outputs from third-party servers as **untrusted input** (tool poisoning, prompt injection). Pin server versions and review descriptions.
-- Enforce least privilege per tool and per user. See [Security](21-agent-security-safety-guardrails.md).
+- Enforce least privilege per tool and per user. See [Security](agent-security-safety-guardrails.md).
 
 ## Failure modes
 
@@ -109,4 +109,4 @@ MCP is **agent to tool/data**; A2A is **agent to agent**. They are complementary
 ## Interview cheat-sheet
 
 - Say: "Tools sit behind an MCP gateway that terminates OAuth, validates audience, applies per-tenant rate limits and routes on the mirrored headers; servers are stateless; long jobs use the Tasks extension; writes are idempotent and need approval above a risk threshold."
-- Related: [Agent Orchestration Patterns](18-agent-orchestration-patterns.md), [Design an MCP Platform](../05-agentic-problem-breakdowns/mcp-platform.md).
+- Related: [Agent Orchestration Patterns](agent-orchestration-patterns.md), [Design an MCP Platform](../../05-agentic-problem-breakdowns/mcp-platform.md).
