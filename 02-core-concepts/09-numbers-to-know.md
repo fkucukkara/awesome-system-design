@@ -52,6 +52,33 @@ Order-of-magnitude figures for sanity-checking a design. Use them to decide whet
 
 Serial dependencies multiply: three 99.9% services in a chain give ~99.7%.
 
+## LLM and vector search (agentic systems)
+
+Order-of-magnitude figures that shift every few months. Re-check against current provider docs and your own benchmarks. See [LLM Fundamentals](14-llm-fundamentals.md).
+
+| Item | Approx. |
+|---|---|
+| 1 token | ~4 English characters, ~0.75 words |
+| 1 page of text | ~500-700 tokens |
+| Context window | 10^5 to 10^6 tokens; quality and cost degrade well before full |
+| Time to first token | 0.3-2 s (reasoning models: several seconds) |
+| Decode speed | tens of tokens/s per stream |
+| 500-token answer | ~5-15 s unless streamed |
+| Output vs input price | output is ~3-5x more per token |
+| Small vs frontier model price | small is ~10-50x cheaper per token |
+| Embedding call | 10-100 ms, cheap relative to generation |
+| Embedding vector | 10^2-10^4 dims; 1536 dims float32 = ~6 KB per chunk |
+| 10M chunks x 1536 float32 | ~60 GB raw, plus index overhead (HNSW roughly 1.5-2x) |
+| ANN query (in memory, 10^6-10^7 vectors) | ~1-20 ms |
+| Hybrid search + rerank | add ~50-300 ms for the reranker |
+| Tool call (internal API) | 10-500 ms; external SaaS 0.2-2 s |
+| Agent task (5-10 model calls) | 10-60 s end to end; budget tokens, steps and wall time |
+| Chat turn | ~1-5k input tokens, ~300-800 output tokens |
+| RAG turn | ~3-10k input tokens (history plus top chunks) |
+| Agent task | ~20-200k tokens total (multi-agent research can be 10-20x a chat) |
+
+Traffic to quota: `peak requests/s x tokens per request x 60 = tokens per minute (TPM)` needed. Compare it against the deployment TPM limit before choosing between a single deployment, several deployments behind a gateway and provisioned throughput.
+
 ## How to use in an interview
 
 1. Estimate the number that changes a decision (e.g. 1B URLs x 500 B = 500 GB: fits one node, so sharding is not needed for size).

@@ -84,3 +84,29 @@ Say: "Let me complete the high-level design so we have the full picture, then I'
 | 12 | API done |
 | 25 | HLD complete |
 | 35+ | Deep dives and wrap-up |
+
+## Agentic add-on
+
+For LLM, RAG and agent systems keep the same six steps and add the items below. Practice them in the [Agentic Problem Breakdowns](../05-agentic-problem-breakdowns/).
+
+| Step | Add this |
+|---|---|
+| Requirements | **Answer quality** (groundedness, task success rate), **cost per task** (tokens, tool calls), **time to first token** and end-to-end latency, **safety** (injection, PII, harmful output), autonomy level (who approves actions?) |
+| Core Entities | Conversation, Message, **Run** (one agent execution), Step/Tool call, **Tool**, **Memory**, Document/Chunk, Policy |
+| API | Streaming (SSE) for tokens, async `POST /runs` plus polling or webhook for long tasks, a cancel endpoint, approval endpoints for human-in-the-loop |
+| Data Flow | Draw the **agent loop**: context assembly, model call, tool call, observation, stop condition. Name the step and token budgets |
+| High-Level Design | Add the model gateway, retrieval layer, tool layer and a durable run-state store as boxes. Keep the model a black box with a timeout |
+| Deep Dives | Pick from: retrieval quality, memory, orchestration pattern, evals, guardrails, cost and latency, durable execution |
+
+Basics to lean on: [LLM Fundamentals](../02-core-concepts/14-llm-fundamentals.md), [RAG](../02-core-concepts/15-embeddings-vector-search-rag.md), [Memory](../02-core-concepts/16-agent-memory-and-context-engineering.md), [Tools and MCP](../02-core-concepts/17-tool-use-mcp-and-agent-protocols.md), [Orchestration](../02-core-concepts/18-agent-orchestration-patterns.md), [Evals](../02-core-concepts/20-evaluation-and-observability-for-llm-systems.md), [Security](../02-core-concepts/21-agent-security-safety-guardrails.md).
+
+### Agentic checklist
+
+- [ ] Every loop has a **hard stop**: max steps, max tokens, max wall time, max spend
+- [ ] Every tool call is **idempotent** or guarded by an idempotency key, and has a timeout
+- [ ] Run state is **durable**, so a crash resumes instead of restarting
+- [ ] Retrieval and tools enforce the **caller's permissions**, not the agent's
+- [ ] Untrusted content (web, documents, tool output) cannot trigger privileged actions
+- [ ] There is an **eval set** and a regression gate before any prompt, model or tool change
+- [ ] Traces capture prompts, tool calls, tokens and cost per run
+- [ ] A cheaper model or cached answer exists as the **fallback** when quota or latency fails
